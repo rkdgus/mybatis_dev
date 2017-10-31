@@ -3,7 +3,7 @@ package kr.or.dgit.mybatis_dev.dto;
 import java.sql.Date;
 
 public class Student {
-	private int studid;
+	private int studId;
 	private String name;
 	private String email;
 	private PhoneNumber phone;
@@ -11,10 +11,10 @@ public class Student {
 	
 	
 	public int getStudid() {
-		return studid;
+		return studId;
 	}
-	public void setStudid(int studid) {
-		this.studid = studid;
+	public void setStudid(int studId) {
+		this.studId = studId;
 	}
 	public String getName() {
 		return name;
@@ -43,7 +43,7 @@ public class Student {
 	
 	@Override
 	public String toString() {
-		return String.format("Student [%s, %s, %s, %s, %s]", studid, name, email, phone,
+		return String.format("Student [%s, %s, %s, %s, %s]", studId, name, email, phone,
 				dob);
 	}
 	
