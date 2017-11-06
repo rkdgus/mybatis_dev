@@ -8,39 +8,13 @@ public class Student {
 	private String email;
 	private PhoneNumber phone;
 	private Date dob;
-	
-	
-	public int getStudid() {
-		return studId;
+	private Addresses address;
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	public void setStudid(int studId) {
-		this.studId = studId;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public PhoneNumber getPhone() {
-		return phone;
-	}
-	public void setPhone(PhoneNumber phone) {
-		this.phone = phone;
-	}
-	public Date getDob() {
-		return dob;
-	}
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
-	
+
 	public Student(int studId, String name, String email, PhoneNumber phone, Date dob) {
 		super();
 		this.studId = studId;
@@ -49,15 +23,77 @@ public class Student {
 		this.phone = phone;
 		this.dob = dob;
 	}
+
+	public Student(int studId, String name, String email, PhoneNumber phone, Date dob, Addresses address) {
+		super();
+		this.studId = studId;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.dob = dob;
+		this.address = address;
+	}
+
+	public int getStudId() {
+		return studId;
+	}
+
+	public void setStudId(int studId) {
+		this.studId = studId;
+	}
+
+	public Addresses getAddress() {
+		return address;
+	}
+
+	public void setAddress(Addresses address) {
+		this.address = address;
+	}
+
+	public int getStudid() {
+		return studId;
+	}
+
+	public void setStudid(int studId) {
+		this.studId = studId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public PhoneNumber getPhone() {
+		return phone;
+	}
+
+	public void setPhone(PhoneNumber phone) {
+		this.phone = phone;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Student [%s, %s, %s, %s, %s]", studId, name, email, phone,
-				dob);
+		return String.format("Student [studId=%s, name=%s, email=%s, phone=%s, dob=%s, addresses=%s]", studId, name,
+				email, phone, dob, address);
 	}
-	public Student() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
+
 }

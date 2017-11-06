@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -154,12 +155,31 @@ public class TestStudentService {
 	}
 	
 	
+	@Test
+	public void test10selectStudentByAllForResultMap() {
+		List<Student> lists = studentService.selectStudentByAllForResultMap();
+		List<Student> listsAPI = studentService.selectStudentByAllForResultMapWithAPI();
+		Assert.assertEquals(lists.size(), listsAPI.size());
+	}
 	
 	
+	@Test
+	public void test11selectStudentByAllForHashMap() {
+		List<Map<String, Object>> lists = studentService.selectStudentByAllForHashMap();
+		List<Map<String, Object>> listsAPI = studentService.selectStudentByAllForHashMapWithAPI();
+		Assert.assertEquals(lists.size(), listsAPI.size());
+	}
 	
 	
-	
-	
+	@Test
+	public void test12selectStudentByAllForResultMapExtends() {
+		Student student = new Student();
+		student.setStudid(1);
+		
+		Student extStd = studentService.selectStudentByNoForResultMapExtends(student);
+		Student extStdApi = studentService.selectStudentByNoForResultMapExtendsWithAPI(student);
+		Assert.assertEquals(extStd.getStudId(), extStdApi.getStudId());
+	}
 	
 	
 

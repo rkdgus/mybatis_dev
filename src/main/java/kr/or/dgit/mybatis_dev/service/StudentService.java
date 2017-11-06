@@ -3,6 +3,7 @@ package kr.or.dgit.mybatis_dev.service;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -120,6 +121,54 @@ public Student findStudentByNoAPI(Student student) {
 			sqlSession.commit();
 		}
 		return res;
+	}
+	
+	
+	public List<Student> selectStudentByAllForResultMap() {
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession()){
+			StudentDao dao = new StudentDaoImpl(sqlSession);
+			return dao.selectStudentByAllForResultMap();
+		}
+	}
+	
+
+	public List<Student> selectStudentByAllForResultMapWithAPI() {
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession()){
+			StudentDao dao = new StudentDaoImpl(sqlSession);
+			return dao.selectStudentByAllForResultMapWithAPI();
+		}
+	}
+	
+	public List<Map<String, Object>> selectStudentByAllForHashMap(){
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession()){
+			StudentDao dao = new StudentDaoImpl(sqlSession);
+			return dao.selectStudentByAllForHashMap();
+		}
+	}
+	
+	public List<Map<String, Object>> selectStudentByAllForHashMapWithAPI(){
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession()){
+			StudentDao dao = new StudentDaoImpl(sqlSession);
+			return dao.selectStudentByAllForHashMapWithAPI();
+		}
+	}
+	
+	
+	public Student selectStudentByNoForResultMapExtends(Student student) {
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession()){
+			StudentDao dao = new StudentDaoImpl(sqlSession);
+			return dao.selectStudentByNoForResultMapExtends(student);
+		}
+		
+	}
+	
+	
+	public Student selectStudentByNoForResultMapExtendsWithAPI(Student student) {
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession()){
+			StudentDao dao = new StudentDaoImpl(sqlSession);
+			return dao.selectStudentByNoForResultMapExtendsWithAPI(student);
+		}
+		
 	}
 	
 }

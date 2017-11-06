@@ -27,6 +27,14 @@
 			</if>
 		</where>
 	</sql>
+	
+	
+	<sql id="selectJoinAddressSql">
+		select stud_id,name,email,phone,a.addr_id,street,city,state,zip,country
+		from students s left outer join addresses a on s.addr_id=a.addr_id
+	</sql>
+	
+	
 
 	<select id="selectStudentByAll" resultType="Student">
 		<include refid="selectSql"/>
@@ -79,5 +87,75 @@
 	</delete>
 	
 	
+	<resultMap id="StudentResult" type="Student">
+		<id property="studId" column="stud_id"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<result property="dob" column="dob"/>
+	</resultMap>
+	
+	<resultMap id="StudentWithAddressResult" type="Student" extends="StudentResult">
+		<id property="address.addrId" column="addr_id"/>
+		<result property="address.street" column="street"/>
+		<result property="address.city" column="city"/>
+		<result property="address.state" column="state"/>
+		<result property="address.zip" column="zip"/>
+		<result property="address.country" column="country"/>
+	</resultMap>
+	
+	<select id="selectStudentByAllForResultMap" resultMap="StudentResult">
+		<include refid="selectSql"/>
+	</select>
+	
+	<select id="selectStudentByAllForResultMapWithAPI" resultMap="StudentResult">
+		<include refid="selectSql"/>
+	</select>
+	
+	<select id="selectStudentByAllForHashMap" resultType="map">
+		<include refid="selectSql"/>
+	</select>
+	
+	<select id="selectStudentByAllForHashMapWithAPI" resultType="map">
+		<include refid="selectSql"/>
+	</select>
+	
+	<select id="selectStudentByNoForResultMapExtends" parameterType="Student"
+	 resultMap="StudentWithAddressResult">
+		<include refid="selectJoinAddressSql"/>
+		<include refid="whereSql"/>
+	</select>
+	
+	
+	<select id="selectStudentByNoForResultMapExtendsWithAPI" parameterType="Student"
+	 resultMap="StudentWithAddressResult">
+		<include refid="selectJoinAddressSql"/>
+		<include refid="whereSql"/>
+	</select>
+	
+	
+	
 	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
