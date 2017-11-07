@@ -171,4 +171,39 @@ public Student findStudentByNoAPI(Student student) {
 		
 	}
 	
+	public Student selectStudentByNoAssociation(Student student) {
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession()){
+			StudentDao dao = new StudentDaoImpl(sqlSession);
+			return dao.selectStudentByNoAssociation(student);
+		}
+	}
+	
+	public Student selectStudentByNoAssociationWithAPI(Student student) {
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession()){
+			StudentDao dao = new StudentDaoImpl(sqlSession);
+			return dao.selectStudentByNoAssociationWithAPI(student);
+		}
+	}
+	
+	public int insertEnumStudent(Student student) {
+		int res=-1;
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession()){
+			StudentDao dao = new StudentDaoImpl(sqlSession);
+			res = dao.insertEnumStudent(student);
+			sqlSession.commit();
+		}
+		return res;
+	}
+	
+	public int insertEnumStudentWithAPI(Student student) {
+		int res=-1;
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.getSqlSessionFactory().openSession()){
+			StudentDao dao = new StudentDaoImpl(sqlSession);
+			res = dao.insertEnumStudentWithAPI(student);
+			sqlSession.commit();
+		}
+		return res;
+	}
+	
+	
 }

@@ -1,6 +1,6 @@
 package kr.or.dgit.mybatis_dev.dto;
 
-public class Addresses {
+public class Address {
 	private int addrId;
 	private String street;
 	private String city;
@@ -8,12 +8,12 @@ public class Addresses {
 	private String zip;
 	private String country;
 
-	public Addresses() {
+	public Address() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Addresses(int addrId, String street, String city, String state, String zip, String country) {
+	public Address(int addrId, String street, String city, String state, String zip, String country) {
 		super();
 		this.addrId = addrId;
 		this.street = street;
